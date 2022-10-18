@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Test App</string>
+
+    <string-array name="colours">
+        <item>Black</item>
+        <item>Brown</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Not sure</item>
+    </string-array>
+
+    <string-array name="height">
+        <item>"5/'1"</item>
+        <item>"5/'2""</item>
+        <item>"5/'3"</item>
+        <item>"5/'4"</item>
+    </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>

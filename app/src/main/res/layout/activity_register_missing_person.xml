@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".RegisterMissingPerson">
+
+    <TextView
+        android:id="@+id/text_mpregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Missing Person's details"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/full_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Full Name" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/full_name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:hint="DOB" />
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/full_name"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_toRightOf="@+id/age"
+        android:hint="Weight" />
+
+    <EditText
+        android:id="@+id/clothes_worn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/age"
+        android:layout_marginBottom="10dp"
+        android:hint="Clothes Worn" />
+
+    <EditText
+        android:id="@+id/contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clothes_worn"
+        android:layout_marginBottom="10dp"
+        android:hint="Contacts" />
+
+    <Spinner
+        android:id="@+id/eye_colour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <Spinner
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/eye_colour" />
+
+    <EditText
+        android:id="@+id/dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eye_colour"
+        android:clickable="false"
+
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="Date the person went missing" />
+
+    <EditText
+        android:id="@+id/complexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Skin Complexion" />
+
+    <Button
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Select location here"
+        android:layout_below="@+id/complexion"/>
+
+
+
+
+
+</RelativeLayout>
