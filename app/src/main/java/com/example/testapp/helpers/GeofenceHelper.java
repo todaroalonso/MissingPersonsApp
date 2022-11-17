@@ -1,10 +1,11 @@
-package com.example.testapp;
+package com.example.testapp.helpers;
 
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
 
+import com.example.testapp.maps.GeofenceReceiver;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofenceStatusCodes;
@@ -24,10 +25,11 @@ public class GeofenceHelper extends ContextWrapper {
                .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
                .build();
     }
-    public Geofence getGeofence(String ID,LatLng latLng,int transitionTypes,float radius){
-        return new Geofence.Builder().setCircularRegion(latLng.latitude,latLng.longitude,radius)
+    public Geofence getGeofence(String ID, LatLng latLng, float radius, int transitionTypes){
+        return new Geofence.Builder()
+                .setCircularRegion(latLng.latitude,latLng.longitude,radius)
                 .setRequestId(ID)
-                .setTransitionTypes(transitionTypes)
+                .setTransitionTypes((int) transitionTypes)
                 //delay for entering,dwelling and exiting the geofence
                 .setLoiteringDelay(5000)
                 .setExpirationDuration(Geofence.NEVER_EXPIRE)
@@ -37,10 +39,11 @@ public class GeofenceHelper extends ContextWrapper {
         if(pendingIntent !=null){
             return pendingIntent;
         }
-        Intent intent=new Intent(this,GeofenceReceiver.class);
+        Intent intent=new Intent(this, GeofenceReceiver.class);
         pendingIntent=PendingIntent.getBroadcast(this,2607,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         return pendingIntent;
     }
+
 
     public String getErrorString(Exception e){
         if(e instanceof ApiException){

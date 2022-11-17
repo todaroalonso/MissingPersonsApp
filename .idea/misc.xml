@@ -4,18 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_add_post.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_admin.xml" value="0.33" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_admin.xml" value="0.1" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_admin_images.xml" value="0.2" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_admin_users.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_images.xml" value="0.12864583333333332" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_locater.xml" value="0.42916666666666664" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_main2.xml" value="0.1890625" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_maps.xml" value="0.2" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_post_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_post_detail_activty.xml" value="0.16" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_register_missing_person.xml" value="0.25" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/activity_welcome_page.xml" value="0.41510416666666666" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/custom_confirm_address.xml" value="0.1" />
         <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/image_item.xml" value="0.12864583333333332" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/layout/text_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/menu/bottom_nav.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/toono/AndroidStudioProjects/TestApp/app/src/main/res/menu/home_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

@@ -4,14 +4,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomePage">
+    tools:context=".activities.WelcomePage">
 
 
     <TextView
         android:id="@+id/text_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:text="Welcome !"
         android:textSize="60dp" />
@@ -34,6 +34,14 @@
         android:layout_centerInParent="true"
         android:text="Register for User"
         />
+    <TextView
+        android:id="@+id/alreadyuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:text="Already a user? Click here to login"/>
+
 
 
 

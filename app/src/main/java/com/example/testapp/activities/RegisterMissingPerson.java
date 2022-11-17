@@ -1,6 +1,4 @@
-package com.example.testapp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.testapp.activities;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -12,6 +10,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.testapp.maps.Locater;
+import com.example.testapp.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -21,6 +29,12 @@ public class RegisterMissingPerson extends AppCompatActivity {
     EditText dp1;
     Calendar calendar;
     Button mapbtn;
+
+    private StorageTask mUploadTask;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+    private static final int PICK_IMAGE_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +47,9 @@ public class RegisterMissingPerson extends AppCompatActivity {
 
         Spinner spinnerH = findViewById(R.id.height);
         Spinner spinnerC = findViewById(R.id.eye_colour);
+
+        mStorageRef = FirebaseStorage.getInstance().getReference("missingpersons");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("missingpersons");
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.colours, android.R.layout.simple_spinner_item);
@@ -81,10 +98,11 @@ public class RegisterMissingPerson extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(getApplicationContext(),Locater.class);
+                intent.setClass(getApplicationContext(), Locater.class);
                 startActivity(intent);
             }
         });
+
 
 
 

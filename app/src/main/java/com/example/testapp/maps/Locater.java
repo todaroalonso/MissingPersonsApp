@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.example.testapp.maps;
 
 
 import android.Manifest;
@@ -18,6 +18,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +26,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.testapp.ConfirmAddress;
+import com.example.testapp.R;
 import com.example.testapp.databinding.ActivityLocaterBinding;
+import com.example.testapp.helpers.GeofenceHelper;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.Geofence;
@@ -76,7 +80,7 @@ public class Locater extends FragmentActivity implements OnMapReadyCallback, Loc
     private final static int PLACE_PICKER_REQUEST = 1;
     private final static int LOCATION_REQUEST_CODE = 23;
     private static int PERMISSION_REQUEST_CODE = 12;
-    private float GEOFENCE_RADIUS = 200;
+    private float GEOFENCE_RADIUS = 1200;
     private String GEOFENCE_ID = "SOME_GEOFENCE_ID";
 
     @Override
@@ -216,11 +220,11 @@ public class Locater extends FragmentActivity implements OnMapReadyCallback, Loc
         mGoogleApiClient.connect();
     }
 
-    private String getAddress(LatLng latLng) {
+    public String getAddress(LatLng latLng) {
 
         Geocoder geocoder;
         List<Address> addresses;
-        geocoder = new Geocoder(this, Locale.getDefault());
+          geocoder = new Geocoder(this, Locale.getDefault());
 
         try {
             addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
@@ -232,6 +236,9 @@ public class Locater extends FragmentActivity implements OnMapReadyCallback, Loc
             String knownName = addresses.get(0).getFeatureName();
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+            Toast.makeText(this, (int) latLng.latitude, Toast.LENGTH_SHORT).show();
+
+
             if (prev != null) {
 
                 ft.remove(prev);
@@ -312,13 +319,19 @@ public class Locater extends FragmentActivity implements OnMapReadyCallback, Loc
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //addCircle(latLng, GEOFENCE_RADIUS);
-        //addGeofence(latLng, GEOFENCE_RADIUS);
+        addMarker(latLng);
+        addCircle(latLng, GEOFENCE_RADIUS);
+        addGeofence(latLng, GEOFENCE_RADIUS);
 
     }
 
+    private void addMarker(LatLng latLng){
+        MarkerOptions markerOptions=new MarkerOptions().position(latLng);
+        mMap.addMarker(markerOptions);
+    }
+
     private void addGeofence(LatLng latLng, float radius) {
-        Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID, latLng, (int) radius, Geofence.GEOFENCE_TRANSITION_DWELL);
+        Geofence geofence = geofenceHelper.getGeofence(GEOFENCE_ID, latLng,radius,Geofence.GEOFENCE_TRANSITION_ENTER|Geofence.GEOFENCE_TRANSITION_DWELL);
         GeofencingRequest geofencingRequest = geofenceHelper.getGeofencingRequest(geofence);
         PendingIntent pendingIntent = geofenceHelper.getPendingIntent();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

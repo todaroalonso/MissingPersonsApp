@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".RegisterMissingPerson">
+    tools:context=".activities.RegisterMissingPerson">
 
     <TextView
         android:id="@+id/text_mpregister"
@@ -58,29 +58,46 @@
         android:layout_marginBottom="10dp"
         android:hint="Contacts" />
 
+    <TextView
+        android:id="@+id/eyetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts"
+        android:layout_marginTop="10dp"
+        android:text="Eye color: "></TextView>
+
     <Spinner
         android:id="@+id/eye_colour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contacts"
         android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/eyetext"
+        android:autofillHints="Eye colour"
+
         />
 
+    <TextView
+        android:id="@+id/heighttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/eyetext"
+        android:layout_marginTop="10dp"
+        android:text="Height : "></TextView>
 
     <Spinner
         android:id="@+id/height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/contacts"
-        android:layout_marginLeft="60dp"
+        android:layout_below="@+id/eye_colour"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/eye_colour" />
+        android:layout_toRightOf="@+id/heighttext" />
 
     <EditText
         android:id="@+id/dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/eye_colour"
+        android:layout_below="@+id/height"
         android:clickable="false"
 
         android:cursorVisible="false"
