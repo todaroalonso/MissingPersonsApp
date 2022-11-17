@@ -119,6 +119,13 @@
         android:layout_height="wrap_content"
         android:hint="Select location here"
         android:layout_below="@+id/complexion"/>
+    <Button
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Register details"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/location"/>
 
 
 

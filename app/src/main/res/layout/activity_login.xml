@@ -47,12 +47,22 @@
         android:layout_marginBottom="20dp"/>
 
 
+
+    <TextView
+        android:id="@+id/text_MPregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login"
+        android:text="New Missing Person Register"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"/>
     <TextView
         android:id="@+id/text_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login"
+        android:layout_below="@+id/text_MPregister"
         android:text="New User Register"
         android:layout_marginBottom="20dp"
         android:textAlignment="center"/>
+
 </RelativeLayout>

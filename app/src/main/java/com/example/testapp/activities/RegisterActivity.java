@@ -83,15 +83,17 @@ public class RegisterActivity extends AppCompatActivity {
     private void Register() {
         String user = email.getText().toString().trim();
         String pass = password.getText().toString().trim();
+        String pass2 = password2.getText().toString().trim();
         if (user.isEmpty()) {
             email.setError("Email can not be empty");
         }
         if (pass.isEmpty()) {
             password.setError("Password can not be empty");
         }
-        if (password!=password2) {
-            password.setError("Passwords do not match");
-        }
+        /*
+        if (pass!=pass2) {
+            password2.setError("Passwords do not match");
+        }*/
         else {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override

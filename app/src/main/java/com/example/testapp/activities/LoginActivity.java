@@ -1,7 +1,6 @@
 package com.example.testapp.activities;
 
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email, password;
     private Button btnLogin;
-    private TextView textRegister;
+    private TextView textRegister,MPRegister;
     private FirebaseFirestore fStore;
     private FirebaseUser mm;
     boolean valid = true;
@@ -43,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.login_password);
         btnLogin = findViewById(R.id.login);
         textRegister = findViewById(R.id.text_register);
+        MPRegister = findViewById(R.id.text_MPregister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +56,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
+        MPRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
             }
         });
     }
@@ -103,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("TAG", "onSuccess: " + documentSnapshot.getData());
 
                 if (documentSnapshot.getString("isGeneralUser") != null) {
-                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ImagesActivity.class));
                     finish();
                 }
                 if (documentSnapshot.getString("isAdmin") != null) {

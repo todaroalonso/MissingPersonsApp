@@ -44,12 +44,7 @@ public class WelcomePage extends AppCompatActivity {
                 openLoginActivity();
             }
         });
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAdminImgActivity();
-            }
-        });
+
     }
 
 
@@ -65,8 +60,5 @@ public class WelcomePage extends AppCompatActivity {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
-    private void openAdminImgActivity() {
-        Intent intent = new Intent(this, AdminActivity.class);
-        startActivity(intent);
-    }
+
 }

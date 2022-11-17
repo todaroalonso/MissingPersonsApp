@@ -1,7 +1,10 @@
 package com.example.testapp.activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -14,6 +17,7 @@ import com.example.testapp.R;
 import com.example.testapp.adapters.ImageAdapter;
 import com.example.testapp.models.Upload;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -107,6 +111,37 @@ private ValueEventListener mDBListener;
             }
         });
     }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.item2:
+                logout();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void logout() {
+
+        FirebaseAuth.getInstance().signOut();
+
+        startActivity(new Intent(ImagesActivity.this, LoginActivity.class));
+
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

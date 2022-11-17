@@ -6,6 +6,8 @@
         tools:context="com.example.test.activities.MainActivity">
 
         <item  android:id="@+id/item1"
-            android:title="Log Out"/>
+            android:title="View my posts"/>
+    <item  android:id="@+id/item2"
+        android:title="Log Out"/>
 
     </menu>
