@@ -22,7 +22,7 @@ public class Upload implements Serializable {
     }
 
     public Upload (String name, String imageUrl , String age, String weight
-            , String clothes ,String contacts , String missingdate,String complexion) {
+            , String clothes ,String contacts ,String eyecolour, String missingdate,String complexion) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
@@ -51,7 +51,7 @@ public class Upload implements Serializable {
         mWeight=weight;
         mClothes=clothes;
         mContacts=contacts;
-        //mEyeColour=eyecolour;
+        mEyeColour=eyecolour;
         //mHeight=height;
         mMissingDate=missingdate;
         mComplexion=complexion;
@@ -72,10 +72,10 @@ public class Upload implements Serializable {
     public String getContacts() {
         return mContacts;
     }
-    /*
+
     public String getEyeColour() {
         return mEyeColour;
-    }
+    }/*
     public String getHeight() {
         return mHeight;
     }*/
@@ -103,10 +103,10 @@ public class Upload implements Serializable {
     public void setContacts(String contacts) {
         mContacts = contacts;
     }
-/*
+
     public void setEyecolour(String eyecolour) {
         mEyeColour = eyecolour;
-    }
+    }/*
     public void setHeight(String height) {
         mHeight = height;
     }*/

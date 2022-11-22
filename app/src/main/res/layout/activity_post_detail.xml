@@ -20,14 +20,30 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
         android:text="Name"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/image_view_upload"
+        android:layout_below="@+id/text_view_name"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="250dp" />
+    <TextView
+        android:id="@+id/DOBtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/image_view_upload"
+        android:text="Date of birth:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
+        android:textSize="20sp" />
     <TextView
         android:id="@+id/DOB"
         android:layout_width="wrap_content"
@@ -36,9 +52,24 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:text="Name"
+        android:layout_toRightOf="@+id/DOBtext"
         android:layout_below="@+id/image_view_upload"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/weighttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/DOB"
+        android:text="Weight:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/weight"
         android:layout_width="wrap_content"
@@ -49,6 +80,20 @@
         android:layout_below="@+id/DOB"
         android:text="Name"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/weighttext"/>
+
+    <TextView
+        android:id="@+id/clothestext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/weight"
+        android:text="Clothes worn:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/clothes_worn"
@@ -60,6 +105,20 @@
         android:text="Name"
         android:layout_below="@+id/weight"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/clothestext"/>
+
+    <TextView
+        android:id="@+id/contactstext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/clothes_worn"
+        android:text="Contact details:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/contacts"
@@ -71,6 +130,20 @@
         android:text="Name"
         android:layout_below="@+id/clothes_worn"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/contactstext"/>
+
+    <TextView
+        android:id="@+id/missingtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/contacts"
+        android:text="Date person went missing:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/missing_date"
@@ -82,6 +155,20 @@
         android:text="Name"
         android:layout_below="@+id/contacts"
         android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/missingtext"/>
+
+    <TextView
+        android:id="@+id/complexiontext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/missing_date"
+        android:text="Skin complexion:"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="18dp"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/complexion"
@@ -93,7 +180,8 @@
         android:text="Name"
         android:layout_below="@+id/missing_date"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/complexiontext"/>
 
 
 

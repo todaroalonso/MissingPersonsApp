@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -43,7 +44,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth mAuth;
 
@@ -62,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
     private Spinner mEyeColour;
     private Spinner mHeight;
     private TextView mTextViewShowUploads;
+    private TextView phone;
     private EditText mEditTextFileName;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
+    String item;
 
     EditText dp1;
 
@@ -105,7 +108,11 @@ public class MainActivity extends AppCompatActivity {
         mMissingDate=findViewById(R.id.missing_date);
         mEyeColour=(Spinner) findViewById(R.id.eye_colour);
         mHeight= (Spinner)findViewById(R.id.height);
+        mEyeColour.setOnItemSelectedListener(this);
+        mHeight.setOnItemSelectedListener(this);
+
         mapbtn=findViewById(R.id.location);
+
 
         //dp1 = findViewById(R.id.dp);
 
@@ -285,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
                             //Log.d(TAG, "onSuccess: firebase download url: " + downloadUrl.toString()); //use if testing...don't need this line.
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),downloadUrl.toString()
                                     ,mDOB.getText().toString().trim(),mWeight.getText().toString().trim()
-                                    ,mClothes.getText().toString().trim(),mContacts.getText().toString().trim()
+                                    ,mClothes.getText().toString().trim(),mContacts.getText().toString().trim(),item.trim()
                                     ,mMissingDate.getText().toString().trim()
                             ,mComplexion.getText().toString().trim());
 
@@ -339,6 +346,17 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
 
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        item=mEyeColour.getSelectedItem().toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 }

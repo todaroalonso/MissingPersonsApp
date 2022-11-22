@@ -95,26 +95,31 @@ public class RegisterActivity extends AppCompatActivity {
             password2.setError("Passwords do not match");
         }*/
         else {
-            mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        //getting info on the current user from the auth platform
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
-                        DocumentReference df = fStore.collection("Users").document(user.getUid());
-                        //key-value pairs to store in the FireStore Db
-                        Map<String, Object> userInfo = new HashMap<>();
-                        userInfo.put("isGeneralUser", "1");
+            {
+                mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                            //getting info on the current user from the auth platform
+                            FirebaseUser user=mAuth.getCurrentUser();
+                            Toast.makeText(RegisterActivity.this, "User registered successfully", Toast.LENGTH_SHORT).show();
+                            DocumentReference df= fStore.collection("Users").document(user.getUid());
+                            //key-value pairs to store in the FireStore Db
+                            Map<String,Object>userInfo=new HashMap<>();
+                            userInfo.put("isGeneralUser","1");
 
-                        df.set(userInfo);
-                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                            df.set(userInfo);
+                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
 
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "Registration Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(RegisterActivity.this, "Registration Failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
-            });
+                });
+            }
         }
         int isUser = 1;
 
@@ -122,8 +127,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void uploadDetails() {
         int isUser=1;
-        User user = new User(fname.getText().toString().trim(),lname.getText().toString().trim(),location.getText().toString().trim(),
-                mobile.getText().toString().trim());
+
+        User user = new User(fname.getText().toString().trim(),lname.getText().toString().trim()
+                ,email.getText().toString().trim(),location.getText().toString().trim(),
+                mobile.getText().toString().trim(),isUser);
+
+
 
         //pass new entry to the DB with a unique ID
         String uploadId = mDatabaseRef.push().getKey();

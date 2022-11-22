@@ -3,7 +3,6 @@ package com.example.testapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,12 +18,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
     private EditText email, password;
     private Button btnLogin;
     private TextView textRegister,MPRegister;
@@ -44,10 +47,14 @@ public class LoginActivity extends AppCompatActivity {
         textRegister = findViewById(R.id.text_register);
         MPRegister = findViewById(R.id.text_MPregister);
 
+        mStorageRef= FirebaseStorage.getInstance().getReference("users");
+        mDatabaseRef= FirebaseDatabase.getInstance().getReference("users");
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 login();
+
             }
         });
 
@@ -81,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                        checkUserAccessLevel(authResult.getUser().getUid());
+                       // checkUserAccessLevel(authResult.getUser().getUid());
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -99,9 +106,10 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    /*
 
     private void checkUserAccessLevel(String uid) {
-        DocumentReference df = fStore.collection("Users").document(uid);
+        DocumentReference df = FirebaseDatabase.getInstance().getReference("users");
         //extract data from the collection
         df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
@@ -120,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-
+*/
 
     public boolean checkField(EditText textField) {
         if (textField.getText().toString().isEmpty()) {
